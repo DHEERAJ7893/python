@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
+  <script>
+    for (let i = 0; i < 5; i++) {
+      console.log(i);
+    }
+    const sai = [];
+    sai.push("dheraj");
+    sai.push("i")
+    console.log(sai)
+
+    for (i = 0; i < sai.length; i++) {
+      console.log("courses: ", sai[i]);
+    }
+
+    sai.forEach(function (sai, index) {
+      console.log(sai, index)
+    })
+
+    const voters = [
+      {
+        firstName:"sai",
+        lastNmae:"i",
+        age:33,
+        dob:'1800-01-30T05:24:01.137Z'
+      },
+      {
+        firstName:"dheeraj",
+        lastNmae:"j",
+        age:22,
+        dob:'1900-01-30T05:24:01.137Z'
+      },
+      {
+        firstName:"kalyan",
+        lastNmae:"n",
+        age:22,
+        dob:'1997-08-18T05:24:01.137Z'
+      },
+      {
+        firstName:"ajay",
+        lastNmae:"y",
+        age:24,
+        dob:'2002-02-16T05:24:01.137Z'
+      }
+    ];
+
+    var transform = voters.map(function(voter){
+      return{...voter, dobFormat: moment(voter.dob).format("DD/MM/YYYY"), age: moment().diff(voter.dob, 'years')};
+    });
+    console.log(transform);
+    console.log(voters);
+
+    var voting = transform.filter(function(voter){
+      return voter.age >= 25;
+    });
+    console.log(voting);
+
+    //var trans =[];
+    //for(var i = 0; i < voters.length; i++){
+     // var temp = voters[i];
+      //voters[i].dobformatt = moment(voters[i].dob).format("MM/DD/YYYY")
+     // trans.push(voters[i]);
+    //}
+    //console.log(trans)
+  </script>
+</body>
+
+</html>
